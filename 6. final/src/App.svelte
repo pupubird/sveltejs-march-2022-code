@@ -14,11 +14,12 @@
     title = "";
   }
 
-  function removeItemFromList(event) {
-    let id = event.detail;
-    let itemIndex = items.findIndex((i) => i.id == id);
-    items.splice(itemIndex, 1);
-    items = items;
+  function removeItemFromList(id) {
+    setTimeout(() => {
+      let itemIndex = items.findIndex((i) => i.id == id);
+      items.splice(itemIndex, 1);
+      items = items;
+    }, 1000);
   }
 </script>
 
@@ -30,5 +31,8 @@
 </div>
 
 {#each items as item (item.id)}
-  <ListItem {...item} on:checkboxChecked={removeItemFromList} />
+  <ListItem
+    {...item}
+    onCheckboxChecked={removeItemFromList.bind(this, item.id)}
+  />
 {/each}

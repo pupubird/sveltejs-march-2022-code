@@ -12,6 +12,7 @@
 <h1 class="hello">Hello {name}!</h1>
 <img src={image} alt={image_alt} />
 <!-- 2. Use it as a HTML tag! -->
+<!-- 3. Add export & props -->
 <HelloWorld/>
 
 <style>

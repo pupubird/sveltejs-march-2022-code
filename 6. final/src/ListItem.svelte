@@ -1,17 +1,11 @@
 <script>
-  export let id = 0;
   export let title = "Todo item 1";
   export let createdAt = new Date();
   export let checked = false;
-
-  import { createEventDispatcher } from "svelte";
-
-  const dispatch = createEventDispatcher();
+  export let onCheckboxChecked = () => {};
   $: {
     if (checked) {
-      setTimeout(() => {
-        dispatch("checkboxChecked", id);
-      }, 1000);
+      onCheckboxChecked();
     }
   }
 </script>
